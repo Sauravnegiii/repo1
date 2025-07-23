@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ApnaSSL | Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9fafb;
+      color: #333;
+    }
+    header {
+      background-color: #0f172a;
+      color: white;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header a {
+      color: #ddd;
+      text-decoration: none;
+    }
+    header a:hover {
+      text-decoration: underline;
+    }
+    main {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+    section {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    h2 {
+      margin-top: 0;
+      font-size: 20px;
+    }
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+    input[type="file"], button {
+      padding: 8px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .full-width {
+      width: 100%;
+    }
+    .btn {
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .btn:hover {
+      background-color: #1e40af;
+    }
+    .btn-alt {
+      background-color: #22c55e;
+    }
+    .btn-alt:hover {
+      background-color: #15803d;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+      font-size: 14px;
+    }
+    th {
+      background-color: #f1f5f9;
+    }
+    .badge-valid {
+      color: green;
+      font-weight: bold;
+    }
+    .action-btn {
+      padding: 6px 10px;
+      font-size: 13px;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-right: 5px;
+    }
+    .renew { background-color: #f59e0b; }
+    .revoke { background-color: #dc2626; }
+    .download { background-color: #475569; }
+    .renew:hover { background-color: #d97706; }
+    .revoke:hover { background-color: #b91c1c; }
+    .download:hover { background-color: #334155; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>ApnaSSL Dashboard</h1>
+    <a href="index.html">Back to Home</a>
+  </header>
+
+  <main>
+    <!-- Request Section -->
+    <section>
+      <h2>Request a New Certificate</h2>
+      <form>
+        <div class="full-width">
+          <label for="csr-upload">Upload CSR</label>
+          <input type="file" id="csr-upload" class="full-width">
+        </div>
+        <div>
+          <label>Or Generate New Key</label><br/>
+          <button type="button" class="btn">Generate Key Pair</button>
+        </div>
+        <div class="full-width">
+          <button type="submit" class="btn btn-alt" style="margin-top: 10px;">Request Certificate</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Certificates Table -->
+    <section>
+      <h2>Your Certificates</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Domain</th>
+            <th>Issued On</th>
+            <th>Expires</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>example.com</td>
+            <td>2025-07-01</td>
+            <td>2026-07-01</td>
+            <td><span class="badge-valid">Valid</span></td>
+            <td>
+              <button class="action-btn renew">Renew</button>
+              <button class="action-btn revoke">Revoke</button>
+              <button class="action-btn download">Download</button>
+            </td>
+          </tr>
+          <!-- More rows dynamically -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+</body>
+</html>
